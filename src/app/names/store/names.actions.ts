@@ -4,7 +4,7 @@ const prefix = '[Names]';
 
 export namespace NamesActions {
     export class UpdateNames {
-        static readonly type = `${prefix} Gets filtered names from database`;
+        static readonly type = `${prefix} Update names in the state`;
         constructor(public names: Array<Name>) { }
     }
 }
