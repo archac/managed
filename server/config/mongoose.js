@@ -7,6 +7,4 @@ mongoose.connection.on('error', () => {
 });
 
 // mongoose debug logging
-mongoose.set('debug', (collectionName, method, query, doc) => {
-    console.log(`${collectionName}.${method}`, query, doc);
-  });
+mongoose.set('debug', true);

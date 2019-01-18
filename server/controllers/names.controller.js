@@ -5,10 +5,17 @@ module.exports = {
 }
 
 function filter(err, res) {
-	//res.status(200);
-    //res.json({ workingfromcontroller: true });
-    //res.end();
-    Name.find(function (err, names) {
+    // pull the criteria off the query param if it exists,
+    // otherwise default it to an empty string
+     const criteria = err.query.criteria || '';
+
+    // use the aggregate pipleine to concat the forename and surname together
+    // then do a case insensitive match on the concatenated string using
+    // the passed in criteria
+    Name.aggregate([
+        {$project: { "name" : { $concat: ["$forename", " ", "$surname"]}}},
+        {$match: {"name": {"$regex": criteria, $options: "i"}}}
+    ]).exec(function(err, names) {
         res.json(names);
     });
 }
