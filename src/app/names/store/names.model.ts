@@ -3,6 +3,6 @@ export class NamesStateModel {
 }
 
 export interface Name {
-    forename: String;
-    surname: String;
+    forename: string;
+    surname: string;
 }
