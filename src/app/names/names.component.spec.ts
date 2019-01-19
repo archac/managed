@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 import { NgxsModule } from '@ngxs/store';
 import { NamesState } from './store/names.state';
 
-export class MockHttpClient {
+class MockHttpClient {
     get(): Observable<any> {
         return of([{name: 'test name'}]);
     }

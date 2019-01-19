@@ -16,7 +16,7 @@ export class NamesState {
     }
 
     @Action(NamesActions.UpdateNames)
-    updateCriteria({ patchState }: StateContext<NamesStateModel>, event: NamesActions.UpdateNames) {
+    updateNames({ patchState }: StateContext<NamesStateModel>, event: NamesActions.UpdateNames) {
         patchState({
             names: event.names
         });
