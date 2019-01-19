@@ -10,11 +10,12 @@ import { Name } from './store/names.model';
   selector: 'app-names',
   styleUrls: ['./names.component.css'],
   template: `
-    <button (click)="filter()"> Test api </button>
-    <input type="text" [(ngModel)]="criteria" (keyup)="keyUp.next()">
-    <ul>
-      <li *ngFor="let name of names$ | async">{{ name.name }}</li>
-    </ul>
+    <div class="names-container">
+      <input type="text" placeholder="Search for a name..." [(ngModel)]="criteria" (keyup)="keyUp.next()">
+      <ul>
+        <li *ngFor="let name of names$ | async">{{ name.name }}</li>
+      </ul>
+    </div>
   `,
 })
 export class NamesComponent implements OnInit {
@@ -27,6 +28,9 @@ export class NamesComponent implements OnInit {
   constructor(
     private namesService: NamesService
   ) {
+  }
+
+  ngOnInit() {
     // Setup the observable that will call the search with a
     // delay after the user has stopped typing
     this.keyUp.pipe(
@@ -37,9 +41,6 @@ export class NamesComponent implements OnInit {
 
     // do an initial search
     this.filter(this.criteria);
-  }
-
-  ngOnInit() {
   }
 
   filter(criteria: string) {

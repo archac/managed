@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NamesComponent } from './names.component';
+import { NamesService } from './services/names.service';
 
 describe('NamesComponent', () => {
   let component: NamesComponent;
@@ -8,7 +9,8 @@ describe('NamesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NamesComponent ]
+      declarations: [ NamesComponent ],
+      providers: [ NamesService ],
     })
     .compileComponents();
   }));
@@ -21,5 +23,11 @@ describe('NamesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call the filter names service', () => {
+    const serviceSpy = spyOn(component, <any>'namesService');
+    component.filter('ron');
+    expect(serviceSpy).toHaveBeenCalledWith('ron');
   });
 });
