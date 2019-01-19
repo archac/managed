@@ -12,8 +12,8 @@ import { Name } from './store/names.model';
   template: `
     <div class="names-container">
       <input type="text" placeholder="Search for a name..." [(ngModel)]="criteria" (keyup)="keyUp.next()">
-      <ul>
-        <li *ngFor="let name of names$ | async">{{ name.name }}</li>
+      <ul class="names-container__list">
+        <li class="names-container__list__item" *ngFor="let name of names$ | async">{{ name.name }}</li>
       </ul>
     </div>
   `,
