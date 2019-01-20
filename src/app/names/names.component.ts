@@ -32,14 +32,16 @@ export class NamesComponent implements OnInit {
 
   ngOnInit() {
     // Setup the observable that will call the search with a
-    // delay after the user has stopped typing
+    // delay after the user has stopped typing to stop the ui
+    // hammering the api with requests
     this.keyUp.pipe(
       debounceTime(500)
     ).subscribe(() => {
       this.filter(this.criteria);
     });
 
-    // do an initial search
+    // do an initial search so that the names list is not empty
+    // when the user first sees it
     this.filter(this.criteria);
   }
 

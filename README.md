@@ -43,5 +43,8 @@ I would have researched methods of mocking out controllers so that proper unit t
 ## Front End Config
 I would have written a better implementation for accessing the config instead of having to request it from the service right before using it. I would either use a route resolver or cache the config after the first time it is loaded to prevent further http requests
 
+## Front end Mocks
+I would have created common mocks for each service, so there is no code duplication. Following the DRY principle
+
 ## End to end testing
 I would have setup a wiremock server for proper end to end testing

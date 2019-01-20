@@ -17,12 +17,12 @@ class MockConfigService {
     loadConfig() {
         return of(
             {
-              endpoint: 'http://localhost:8080',
-              paths: {
-                  names: '/names'
-              }
+                endpoint: 'http://localhost:8080',
+                paths: {
+                    names: '/names'
+                }
             }
-          );
+        );
     }
 }
 
@@ -49,7 +49,7 @@ describe('NamesService', () => {
     });
 
     it('should be created', () => {
-       expect(service).toBeTruthy();
+        expect(service).toBeTruthy();
     });
 
     it('should dispatch to update names in the state', () => {

@@ -12,6 +12,9 @@ export interface Config {
 })
 export class ConfigService {
 
+  // Static path to the assets config file
+  // this will never change unless the application structure
+  // changes, so is ok to hard code here
   private url = '../assets/config.json';
 
   constructor(
