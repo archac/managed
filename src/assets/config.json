@@ -1,5 +1,5 @@
 {
-    "endpoint": "http://localhost:8080",
+    "endpoint": "https://localhost:8443",
     "paths": {
         "names": "/names"
     }

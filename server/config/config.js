@@ -1,5 +1,5 @@
 const config = {
-	port: 8080,
+	port: 8443,
 	mongoHost: "mongodb://localhost:27017"
 };
 

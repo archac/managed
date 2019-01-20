@@ -1,16 +1,21 @@
+
 const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const app = express();
+
+
+const expressServer = express();
 
 
 
-app.use(helmet());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(cors());
+expressServer.use(helmet());
+expressServer.use(bodyParser.json());
+expressServer.use(bodyParser.urlencoded({ extended: true}));
+expressServer.use(cors());
+
+
 
 // Setup cors to always require a preflight check and only allow GET requests
 const corsOptions = {
@@ -21,6 +26,6 @@ const corsOptions = {
 }
 
 // Handle pre flight requests for all end points
-app.options('*', cors(corsOptions));
+expressServer.options('*', cors(corsOptions));
 
-module.exports = app;
+module.exports = expressServer;
