@@ -12,8 +12,8 @@ import { NamesService } from './names/services/names.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
-  { path: '', component: NamesComponent },
-  { path: '**', component: NamesComponent}
+  { path: 'names', component: NamesComponent },
+  { path: '**', redirectTo: '/names' }
 ];
 
 @NgModule({

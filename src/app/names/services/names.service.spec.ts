@@ -5,10 +5,24 @@ import { HttpClient } from '@angular/common/http';
 import { NgxsModule, Store } from '@ngxs/store';
 import { NamesState } from '../store/names.state';
 import { NamesActions } from '../store/names.actions';
+import { ConfigService } from 'src/app/shared/config.service';
 
 class MockHttpClient {
     get(): Observable<any> {
         return of([{ _id: '1234', name: 'test name' }]);
+    }
+}
+
+class MockConfigService {
+    loadConfig() {
+        return of(
+            {
+              endpoint: 'http://localhost:8080',
+              paths: {
+                  names: '/names'
+              }
+            }
+          );
     }
 }
 
@@ -23,6 +37,7 @@ describe('NamesService', () => {
             ],
             providers: [
                 NamesService,
+                { provide: ConfigService, useClass: MockConfigService },
                 { provide: HttpClient, useClass: MockHttpClient }
             ],
         });
