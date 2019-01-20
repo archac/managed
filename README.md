@@ -1,15 +1,5 @@
 # Managed
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
@@ -22,6 +12,36 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Running node tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `mocha server/test` to execue the node js tets
+
+## Building documentation
+
+Run `npm run compodoc` to build compodoc documentation
+
+# Technologies used
+
+## NgXs
+NgXs state management for Angular. Used for decoupling data access / retrieval throughout the application.
+
+## Compodoc
+Documentation generator that fits nicely within the Angular ecosystem. Used to generate a familiar looking set of documentation
+
+## Express
+Used as it is a very popular lightweight web framework for nodejs that provides all the features needed along with good community support.
+
+## HelmetJS
+Provides out of the box security middleware layer for Express.
+
+# Future improvements
+Time permitting, improvements that I would have made to this application are as follows.
+
+## Node unit testing
+I would have researched methods of mocking out controllers so that proper unit tests could be written. As at the moment the tests are essentially integration tests.
+
+## Front End Config
+I would have written a better implementation for accessing the config instead of having to request it from the service right before using it. I would either use a route resolver or cache the config after the first time it is loaded to prevent further http requests
+
+## End to end testing
+I would have setup a wiremock server for proper end to end testing
